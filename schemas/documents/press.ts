@@ -1,32 +1,34 @@
-export default {
-  name: "press",
-  type: "document",
-  title: "Press",
+import { defineType } from 'sanity'
+
+export default defineType({
+  name: 'press',
+  type: 'document',
+  title: 'Press',
   fields: [
     {
-      name: "title",
-      type: "string",
-      title: "Title",
+      name: 'title',
+      type: 'string',
+      title: 'Title',
     },
     {
-      name: "slug",
-      type: "slug",
-      title: "Slug",
+      name: 'slug',
+      type: 'slug',
+      title: 'Slug',
       options: {
-        source: "title",
+        source: 'title',
         maxLength: 96,
       },
     },
     {
-      name: "description",
-      type: "text",
-      title: "Description",
+      name: 'description',
+      type: 'text',
+      title: 'Description',
     },
     {
-      name: "link",
-      title: "Link",
-      type: "array",
-      of: [{ type: "url" }],
+      name: 'link',
+      title: 'Link',
+      type: 'array',
+      of: [{ type: 'url' }],
     },
   ],
-};
+})

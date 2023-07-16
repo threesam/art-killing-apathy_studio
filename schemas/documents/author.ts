@@ -1,4 +1,6 @@
-export default {
+import { defineType } from 'sanity'
+
+export default defineType({
   name: 'author',
   type: 'document',
   title: 'Author',
@@ -6,7 +8,7 @@ export default {
     {
       name: 'name',
       type: 'string',
-      title: 'Name'
+      title: 'Name',
     },
     {
       name: 'slug',
@@ -15,26 +17,26 @@ export default {
       description: 'Some frontends will require a slug to be set to be able to show the person',
       options: {
         source: 'name',
-        maxLength: 96
-      }
+        maxLength: 96,
+      },
     },
     {
       name: 'image',
       type: 'image',
       title: 'Image',
-      options: { hotspot: true }
+      options: { hotspot: true },
     },
     {
       name: 'bio',
       type: 'bodyPortableText',
-      title: 'Biography'
+      title: 'Biography',
     },
   ],
   preview: {
     select: {
       title: 'name',
       subtitle: 'slug.current',
-      media: 'image'
-    }
-  }
-}
+      media: 'image',
+    },
+  },
+})

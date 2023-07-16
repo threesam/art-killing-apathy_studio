@@ -1,4 +1,6 @@
-export default {
+import { defineType } from 'sanity'
+
+export default defineType({
   name: 'authorReference',
   type: 'object',
   title: 'Author reference',
@@ -8,15 +10,15 @@ export default {
       type: 'reference',
       to: [
         {
-          type: 'author'
-        }
-      ]
-    }
+          type: 'author',
+        },
+      ],
+    },
   ],
   preview: {
     select: {
       title: 'author.name',
-      media: 'author.image.asset'
-    }
-  }
-}
+      media: 'author.image.asset',
+    },
+  },
+})

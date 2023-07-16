@@ -1,4 +1,6 @@
-export default {
+import { defineType } from 'sanity'
+
+export default defineType({
   name: 'page',
   type: 'document',
   title: 'Page',
@@ -19,11 +21,11 @@ export default {
           type: 'reference',
           to: [
             {
-              type: 'post'
-            }
-          ]
-        }
-      ]
-    }
+              type: 'post',
+            },
+          ],
+        },
+      ],
+    },
   ],
-}
+})

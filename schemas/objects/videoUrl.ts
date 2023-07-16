@@ -1,38 +1,19 @@
-// import getVideoId from "get-video-id";
-// import YouTube from "react-youtube";
-// import Vimeo from "react-vimeo";
+import { defineType } from 'sanity'
 
-// function Preview({ value }) {
-//   const { id, service } = getVideoId(`${value.url}`);
-
-//   if (!id) return null;
-
-//   if (service === "youtube") {
-//     return <YouTube videoId={id} />;
-//   }
-
-//   if (service === "vimeo") {
-//     return <Vimeo videoId={id} />;
-//   }
-
-//   return null;
-// }
-
-export default {
-  name: "videoUrl",
-  type: "object",
-  title: "Video Embed",
+export default defineType({
+  name: 'videoUrl',
+  type: 'object',
+  title: 'Video Embed',
   fields: [
     {
-      name: "url",
-      type: "url",
+      name: 'url',
+      type: 'url',
       title: `Video Url`,
     },
   ],
   preview: {
     select: {
-      url: "url",
+      url: 'url',
     },
-    // component: () => Preview,
   },
-};
+})

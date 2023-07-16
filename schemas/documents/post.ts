@@ -1,150 +1,127 @@
-import { format, parseISO } from "date-fns";
+import { defineType } from 'sanity'
+import { format, parseISO } from 'date-fns'
 
-export default {
-  name: "post",
-  type: "document",
-  title: "Post",
+export default defineType({
+  name: 'post',
+  type: 'document',
+  title: 'Post',
   fields: [
     {
-      name: "title",
-      type: "string",
-      title: "Title",
-      description: "Titles should be catchy, descriptive, and not too long",
+      name: 'title',
+      type: 'string',
+      title: 'Title',
+      description: 'Titles should be catchy, descriptive, and not too long',
     },
     {
-      name: "slug",
-      type: "slug",
-      title: "Slug",
-      description:
-        "Some frontends will require a slug to be set to be able to show the post",
+      name: 'slug',
+      type: 'slug',
+      title: 'Slug',
+      description: 'Some frontends will require a slug to be set to be able to show the post',
       options: {
-        source: "title",
+        source: 'title',
         maxLength: 96,
       },
     },
     {
-      name: "publishedAt",
-      type: "datetime",
-      title: "Published at",
-      description: "This can be used to schedule post for publishing",
+      name: 'publishedAt',
+      type: 'datetime',
+      title: 'Published at',
+      description: 'This can be used to schedule post for publishing',
       options: {
-        dateFormat: "MM-DD-YYYY",
-        timeFormat: "HH:mm",
+        dateFormat: 'MM-DD-YYYY',
+        timeFormat: 'HH:mm',
       },
     },
     {
-      name: "featuredMedia",
-      type: "featuredMedia",
+      name: 'featuredMedia',
+      type: 'featuredMedia',
     },
     {
-      name: "excerpt",
-      type: "excerptPortableText",
-      title: "Excerpt",
+      name: 'excerpt',
+      type: 'excerptPortableText',
+      title: 'Excerpt',
       description:
-        "This ends up on summary pages, on Google, when people share your post in social media.",
+        'This ends up on summary pages, on Google, when people share your post in social media.',
     },
     {
-      name: "authors",
-      title: "Authors",
-      type: "array",
+      name: 'authors',
+      title: 'Authors',
+      type: 'array',
       of: [
         {
-          name: "author",
-          type: "reference",
+          name: 'author',
+          type: 'reference',
           to: [
             {
-              type: "author",
+              type: 'author',
             },
           ],
         },
       ],
     },
     {
-      name: "categories",
-      type: "array",
-      title: "Categories",
+      name: 'categories',
+      type: 'array',
+      title: 'Categories',
       of: [
         {
-          type: "reference",
+          type: 'reference',
           to: {
-            type: "category",
+            type: 'category',
           },
         },
       ],
     },
     {
-      name: "tags",
-      type: "array",
-      title: "Tags",
+      name: 'tags',
+      type: 'array',
+      title: 'Tags',
       of: [
         {
-          type: "reference",
+          type: 'reference',
           to: {
-            type: "tag",
+            type: 'tag',
           },
         },
       ],
     },
     {
-      name: "cta",
-      type: "cta",
-      title: "Call To Action",
+      name: 'cta',
+      type: 'cta',
+      title: 'Call To Action',
     },
     {
-      name: "body",
-      type: "bodyPortableText",
-      title: "Body",
+      name: 'body',
+      type: 'bodyPortableText',
+      title: 'Body',
     },
     {
-      name: "fromWordpress",
-      type: "boolean",
+      name: 'fromWordpress',
+      type: 'boolean',
       hidden: true,
     },
   ],
   orderings: [
     {
-      name: "publishedAsc",
-      title: "Published new–>old",
-      by: [
-        {
-          field: "publishedAt",
-          direction: "desc",
-        },
-        {
-          field: "title",
-          direction: "desc",
-        },
-      ],
-    },
-    {
-      name: "publishedDesc",
-      title: "Published old->new",
-      by: [
-        {
-          field: "publishedAt",
-          direction: "asc",
-        },
-        {
-          field: "title",
-          direction: "asc",
-        },
-      ],
+      title: 'Publish Date, New',
+      name: 'publishedAtDesc',
+      by: [{ field: 'publishedAt', direction: 'desc' }],
     },
   ],
   preview: {
     select: {
-      title: "title",
-      publishedAt: "publishedAt",
-      slug: "slug",
-      media: "featuredMedia",
+      title: 'title',
+      publishedAt: 'publishedAt',
+      slug: 'slug',
+      media: 'featuredMedia',
     },
-    prepare({ title = "No title", publishedAt, media }) {
-      const date = format(parseISO(publishedAt), "yyyy/MM/dd");
+    prepare({ title = 'No title', publishedAt, media }) {
+      const date = format(parseISO(publishedAt), 'yyyy/MM/dd')
       return {
         title,
         media,
-        subtitle: publishedAt ? date : "no publishing date",
-      };
+        subtitle: publishedAt ? date : 'no publishing date',
+      }
     },
   },
-};
+})

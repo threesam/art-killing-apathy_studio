@@ -1,4 +1,6 @@
-export default {
+import { defineType } from 'sanity'
+
+export default defineType({
   name: 'tag',
   type: 'document',
   title: 'Tag',
@@ -6,18 +8,18 @@ export default {
     {
       name: 'name',
       title: 'Name',
-      type: 'string'
+      type: 'string',
     },
     {
       type: 'slug',
       name: 'slug',
-      title: 'Slug'
+      title: 'Slug',
     },
     {
       name: 'description',
       type: 'text',
-      title: 'Description'
-    }
+      title: 'Description',
+    },
   ],
   orderings: [
     {
@@ -26,9 +28,9 @@ export default {
       by: [
         {
           field: 'name',
-          direction: 'desc'
-        }
-      ]
+          direction: 'desc',
+        },
+      ],
     },
     {
       name: 'nameDesc',
@@ -36,9 +38,9 @@ export default {
       by: [
         {
           field: 'name',
-          direction: 'asc'
-        }
-      ]
-    }
-  ]
-}
+          direction: 'asc',
+        },
+      ],
+    },
+  ],
+})

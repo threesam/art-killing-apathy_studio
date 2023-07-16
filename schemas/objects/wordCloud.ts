@@ -1,4 +1,6 @@
-export default {
+import { defineType } from 'sanity'
+
+export default defineType({
   title: 'Word Cloud',
   name: 'wordCloud',
   type: 'object',
@@ -30,4 +32,4 @@ export default {
       validation: (Rule) => Rule.unique(),
     },
   ],
-}
+})
