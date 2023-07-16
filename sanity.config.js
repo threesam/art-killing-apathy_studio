@@ -1,4 +1,4 @@
-import { buildLegacyTheme, defineConfig } from 'sanity'
+import { defineConfig } from 'sanity'
 import { deskTool } from 'sanity/desk'
 import { schemaTypes } from './schemas'
 import Logo from './components/Logo'
@@ -17,7 +17,4 @@ export default defineConfig({
       logo: Logo,
     },
   },
-  // theme: buildLegacyTheme({
-  //   '--brand-primary': '#a7272d',
-  // }),
 })

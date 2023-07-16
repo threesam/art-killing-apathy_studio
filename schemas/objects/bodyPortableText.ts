@@ -54,7 +54,7 @@ export default defineType({
     // as a block type.
     {
       type: 'image',
-      hidden: true,
+      hidden: () => true,
       options: { hotspot: true },
     },
     {
