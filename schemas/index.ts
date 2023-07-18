@@ -4,7 +4,6 @@ import category from './documents/category'
 import film from './documents/film'
 import page from './documents/page'
 import post from './documents/post'
-import press from './documents/press'
 import siteSettings from './documents/siteSettings'
 import tag from './documents/tag'
 
@@ -25,7 +24,6 @@ export const schemaTypes = [
   film,
   page,
   post,
-  press,
   siteSettings,
   tag,
 

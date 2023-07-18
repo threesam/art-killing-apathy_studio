@@ -145,7 +145,7 @@ export default defineType({
           name: 'laurel',
           fields: [
             {
-              name: 'publication',
+              name: 'title',
               type: 'string',
             },
             {
