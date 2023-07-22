@@ -1,4 +1,4 @@
-import { defineArrayMember, defineType } from 'sanity'
+import { defineType } from 'sanity'
 
 export default defineType({
   name: 'film',
@@ -113,11 +113,14 @@ export default defineType({
       ],
     },
     {
-      name: 'pressPieces',
-      type: 'array',
+      name: 'showPress',
+      type: 'boolean',
+    },
+    {
+      hidden: ({ parent }) => !parent?.showPress,
+      name: 'press',
       of: [
         {
-          name: 'pressPiece',
           type: 'object',
           fields: [
             {
@@ -135,10 +138,15 @@ export default defineType({
           ],
         },
       ],
+      type: 'array',
     },
     {
+      name: 'showLaurels',
+      type: 'boolean',
+    },
+    {
+      hidden: ({ parent }) => !parent?.showLaurels,
       name: 'laurels',
-      type: 'array',
       of: [
         {
           type: 'object',
@@ -159,6 +167,7 @@ export default defineType({
           ],
         },
       ],
+      type: 'array',
     },
     {
       name: 'releaseDate',
