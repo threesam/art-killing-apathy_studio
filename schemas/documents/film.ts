@@ -109,6 +109,16 @@ export default defineType({
       ],
     },
     {
+      name: 'callouts',
+      type: 'array',
+      of: [{ type: 'string' }],
+    },
+    {
+      name: 'patrons',
+      type: 'array',
+      of: [{ type: 'string' }],
+    },
+    {
       name: 'press',
       of: [
         {
