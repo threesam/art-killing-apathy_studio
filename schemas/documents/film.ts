@@ -181,5 +181,23 @@ export default defineType({
       name: 'gumroadLink',
       type: 'url',
     },
+    {
+      name: 'seo',
+      type: 'object',
+      fields: [
+        {
+          name: 'title',
+          type: 'string',
+        },
+        {
+          name: 'description',
+          type: 'text',
+        },
+        {
+          name: 'image',
+          type: 'image',
+        },
+      ],
+    },
   ],
 })
