@@ -9,6 +9,7 @@ export default defineType({
       type: 'string',
     },
     {
+      hidden: () => true,
       name: 'slug',
       type: 'slug',
       options: {
