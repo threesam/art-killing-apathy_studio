@@ -21,11 +21,6 @@ export default defineType({
       type: 'image',
     },
     {
-      name: 'description',
-      type: 'text',
-      description: 'This is for SEO and google search',
-    },
-    {
       name: 'synopsis',
       type: 'bodyPortableText',
       title: 'Synopsis',
@@ -183,6 +178,7 @@ export default defineType({
     },
     {
       name: 'seo',
+      title: 'SEO',
       type: 'object',
       fields: [
         {
