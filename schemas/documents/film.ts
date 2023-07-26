@@ -109,11 +109,6 @@ export default defineType({
       ],
     },
     {
-      name: 'showPress',
-      type: 'boolean',
-    },
-    {
-      hidden: ({ parent }) => !parent?.showPress,
       name: 'press',
       of: [
         {
@@ -137,11 +132,6 @@ export default defineType({
       type: 'array',
     },
     {
-      name: 'showLaurels',
-      type: 'boolean',
-    },
-    {
-      hidden: ({ parent }) => !parent?.showLaurels,
       name: 'laurels',
       of: [
         {
