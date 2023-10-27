@@ -125,8 +125,12 @@ export default defineType({
           type: 'object',
           fields: [
             {
-              name: 'publication',
+              name: 'title',
               type: 'string',
+            },
+            {
+              name: 'description',
+              type: 'text',
             },
             {
               name: 'url',
